@@ -1,5 +1,3 @@
-
-
 class Bok:
     def __init__(self, id, titel, författare):
         self.id = id 

@@ -1,0 +1,23 @@
+Grupp 1: Strategy (Behavioral)
+- Fatmeh
+- Elie
+- Hampus
+- Adam
+
+Grupp 2: Proxy (Structural)
+- Elias
+- Daniel
+- Simon
+- Ahmad
+
+Grupp 3: Adapter (Structural)
+- Gustav
+- Amer
+- Kevin
+
+Grupp 4: Factory Method (Creational)
+- Amin
+- Rasmus
+- Andreas
+
+

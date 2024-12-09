@@ -6,8 +6,7 @@ class Pizza:
             size:str, 
             crust:str, 
             toppings:list[str], 
-            sauce:str, 
-            type:str
+            sauce:str
         ) -> None:
         
 
@@ -15,7 +14,6 @@ class Pizza:
         self.crust = crust
         self.toppings = toppings
         self.sauce = sauce
-        self.type = type
 
     def __str__(self) -> str:
         return (f"Pizza -> Storlek '{self.size}', deg/kant '{self.crust}', "
@@ -27,7 +25,8 @@ pizzas = {
     3: "Funghi",
     4: "Calzone",
     5: "Al Tono",
-    6: "Hawaii"
+    6: "Hawaii",
+    7: "Blanco"
 }
 
 sizes = {
@@ -38,12 +37,12 @@ sizes = {
 }
 
 pizzas_toppings = {
-    "Margarita": ["Tomatsås", "ost"],
-    "Vesuvio": ["Tomatsås", "ost", "skinka"],
-    "Funghi": ["Tomatsås", "ost", "champinjoner"],
-    "Calzone": ["Tomatsås", "ost", "skinka"],
-    "Al Tono": ["Tomatsås", "ost", "lök", "tonfisk"],
-    "Hawaii": ["Tomatsås", "ost", "skinka", "annanas"]
+    "Margarita": ["ost"],
+    "Vesuvio": ["ost", "skinka"],
+    "Funghi": ["ost", "champinjoner"],
+    "Calzone": ["ost", "skinka"],
+    "Al Tono": ["ost", "lök", "tonfisk"],
+    "Hawaii": ["ost", "skinka", "annanas"]
     }
 
 def print_pizza_menu() -> None:
@@ -82,17 +81,15 @@ if __name__ == "__main__":
                         if selected_size in sizes: break
 
                         print("Ogiltligt val, välj storlek!")
-                    
-                    while True:
-                        style = input("Välj pizzastil: tunn eller pan? ")
-                        if style in ["tun", "pan"]: break
-                        print("Du måste välja stil!")
-
                             
-                pizza_type = "" if pizza_number != 4 else "half baked"
-                
+                    if pizza_number == 4:
+                        pizza_type = "inbakad"
+                    else:
+                        while True:
+                            style = input("Välj pizzastil: tunn eller pan? ")
+                            if style in ["tun", "pan"]: break
+                            print("Du måste välja stil!")
+                        pizza_type = style
 
-
-
-
-
+                    pizza = Pizza(selected_size, pizza_type, pizzas_toppings[pizzas[pizza_number]], "Tomatsås")
+                    order.append(pizza)
